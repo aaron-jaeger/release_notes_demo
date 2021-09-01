@@ -12,15 +12,17 @@ jobs:
         uses: actions/checkout@v2
       - name: Generate Version Output
         run: |
+          echo ${{ github.ref }}
           VERSION=$(echo ${{ github.ref }} | sed 's?refs/heads/Release/??')
-          echo ::set-output name=version::"$VERSION"
+          echo ::set-output name=semver::${VERSION}
+          echo ${{ steps.vars.outputs.semver }}
       - name: Create Release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.vars.outputs.version }}
-          release_name: Release ${{ steps.vars.outputs.version }}
+          tag_name: ${{ steps.vars.outputs.semver }}
+          release_name: Release ${{ steps.vars.outputs.semver }}
           body: |
             Sample release notes for now.
           draft: false
