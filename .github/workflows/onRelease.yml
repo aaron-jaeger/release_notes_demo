@@ -16,6 +16,8 @@ jobs:
           echo "::set-output name=semver::$(echo ${{ github.ref }} | sed 's?refs/heads/Release/??')"
       - name: Generate Release Notes
         run: |
+          git --version
+          git branch
           git describe --tags --long
       - name: Create Release
         uses: actions/create-release@v1
