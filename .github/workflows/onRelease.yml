@@ -14,7 +14,7 @@ jobs:
         run: |
           echo ${{ github.ref }}
           echo ${{ github.ref }} | sed 's?refs/heads/Release/??'
-          echo ::set-output name=semver::$(echo ${{ github.ref }} | sed 's?refs/heads/Release/??')
+          echo "::set-output name=semver::$(echo ${{ github.ref }} | sed 's?refs/heads/Release/??')"
           echo ${{ steps.vars.outputs.semver }}
       - name: Create Release
         uses: actions/create-release@v1
