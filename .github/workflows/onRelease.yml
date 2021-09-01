@@ -13,7 +13,7 @@ jobs:
       - name: Generate Version Output
         run: |
           VERSION=$(echo ${{ github.ref }} | sed 's?refs/heads/Release/??')
-          echo ::set-output name=version::$VERSION
+          echo ::set-output name=version::"$VERSION"
       - name: Create Release
         uses: actions/create-release@v1
         env:
