@@ -1,0 +1,27 @@
+name: Release
+on:
+  push:
+    branches:
+      - '^[Rr]elease\/v[0-9]+\.*[0-9]*\.*[0-9]*$'
+jobs:
+  create-release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Generate Version Output
+        run: |
+          VERSION=$(echo ${{ github.ref }} | sed 's?refs/heads/Release/??')
+          echo ::set-output name=version::$VERSION
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.vars.outputs.version }}
+          release_name: Release ${{ steps.vars.outputs.version }}
+          body: |
+            Sample release notes for now.
+          draft: false
+          prerelease: false
