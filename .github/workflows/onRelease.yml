@@ -13,8 +13,8 @@ jobs:
       - name: Generate Version Output
         run: |
           echo ${{ github.ref }}
-          VERSION=$(echo ${{ github.ref }} | sed 's?refs/heads/Release/??')
-          echo ::set-output name=semver::${VERSION}
+          echo ${{ github.ref }} | sed 's?refs/heads/Release/??'
+          echo ::set-output name=semver::$(echo ${{ github.ref }} | sed 's?refs/heads/Release/??')
           echo ${{ steps.vars.outputs.semver }}
       - name: Create Release
         uses: actions/create-release@v1
