@@ -13,10 +13,10 @@ jobs:
       - name: Generate Version Output
         id: generate_version
         run: |
-          echo ${{ github.ref }}
-          echo ${{ github.ref }} | sed 's?refs/heads/Release/??'
           echo "::set-output name=semver::$(echo ${{ github.ref }} | sed 's?refs/heads/Release/??')"
-          echo ${{ steps.generate_version.outputs.semver }}
+      - name: Generate Release Notes
+        run: |
+          git describe --tags --long
       - name: Create Release
         uses: actions/create-release@v1
         env:
