@@ -11,18 +11,19 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
       - name: Generate Version Output
+        id: generate_version
         run: |
           echo ${{ github.ref }}
           echo ${{ github.ref }} | sed 's?refs/heads/Release/??'
           echo "::set-output name=semver::$(echo ${{ github.ref }} | sed 's?refs/heads/Release/??')"
-          echo ${{ steps.vars.outputs.semver }}
+          echo ${{ steps.generate_version.semver }}
       - name: Create Release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.vars.outputs.semver }}
-          release_name: Release ${{ steps.vars.outputs.semver }}
+          tag_name: ${{ steps.generate_version.semver }}
+          release_name: Release ${{ steps.generate_version.semver }}
           body: |
             Sample release notes for now.
           draft: false
