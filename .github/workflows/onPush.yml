@@ -11,7 +11,9 @@ jobs:
     strategy:
       matrix:
         test: [1, 2]
-    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Will I show up ${{ matrix.test }}?"
+      - run: |
+          echo "Will I show up ${{ matrix.test }}?"
+          sleep 5s      
+      - run: but how many times do I run?
