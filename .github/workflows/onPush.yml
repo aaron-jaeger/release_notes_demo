@@ -4,4 +4,4 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "I'm a push job".
+      - run: echo "I'm a modified push job".
