@@ -8,5 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-        echo "I'm a pull request job".
-        sleep 35s
+          echo "I'm a pull request job"
+          sleep 35s

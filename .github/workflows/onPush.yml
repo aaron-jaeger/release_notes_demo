@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-        echo "I'm a modified push job".
-        sleep 30s
+          echo "I'm a modified push job"
+          sleep 30s
   skipped-job:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
