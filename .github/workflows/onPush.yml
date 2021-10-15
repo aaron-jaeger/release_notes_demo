@@ -1,0 +1,19 @@
+name: Pull Request (CI)
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "I'm a modified push job"
+          sleep 30s
+  skipped-job:
+    strategy:
+      matrix:
+        test: [1, 2]
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Will I show up ${{ matrix.test }}?"
+          sleep 5s      
+      - run: but how many times do I run?
