@@ -1,0 +1,7 @@
+name: Pull Request (CI)
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "I'm a push job".
