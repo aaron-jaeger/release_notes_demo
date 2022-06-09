@@ -9,4 +9,6 @@ jobs:
     steps:
       - name: Echo stuff
         run: |
-          echo "prereleased"
+          echo '$GITHUB_REF'
+          echo '$GITHUB_RUN_ID'
+          echo '$GITHUB_SHA'
