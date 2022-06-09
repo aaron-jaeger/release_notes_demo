@@ -1,12 +1,12 @@
-name: On Release Created
-on:
-  release: 
-    types: [created]
-jobs:
-  test:
-    name: Created test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Echo stuff
-        run: |
-          echo "created"
+# name: On Release Created
+# on:
+#   release: 
+#     types: [created]
+# jobs:
+#   test:
+#     name: Created test
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Echo stuff
+#         run: |
+#           echo "created"

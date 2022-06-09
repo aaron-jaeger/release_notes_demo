@@ -1,7 +1,7 @@
 name: On Release Released
 on:
   release: 
-    types: [released]
+    types: [released, published]
 jobs:
   test:
     name: Released test
