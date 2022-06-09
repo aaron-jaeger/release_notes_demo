@@ -9,6 +9,6 @@ jobs:
     steps:
       - name: Echo stuff
         run: |
-          echo '$GITHUB_REF'
-          echo '$GITHUB_RUN_ID'
-          echo '$GITHUB_SHA'
+          echo $GITHUB_REF
+          echo $GITHUB_RUN_ID
+          echo $GITHUB_SHA
