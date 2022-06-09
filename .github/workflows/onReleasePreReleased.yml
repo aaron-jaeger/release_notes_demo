@@ -1,7 +1,7 @@
 name: On Release PreReleased
 on:
   release: 
-    types: [prereleased, published]
+    types: [prereleased,published]
 jobs:
   test:
     name: PreReleased test
