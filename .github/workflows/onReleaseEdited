@@ -1,0 +1,12 @@
+name: On Release Edited
+on:
+  release: 
+    types: [edited]
+jobs:
+  test:
+    name: Edited test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo stuff
+        run: |
+          echo "edited"

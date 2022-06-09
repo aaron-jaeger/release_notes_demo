@@ -1,0 +1,12 @@
+name: On Release Deleted
+on:
+  release: 
+    types: [deleted]
+jobs:
+  test:
+    name: Deleted test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo stuff
+        run: |
+          echo "deleted"

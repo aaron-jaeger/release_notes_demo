@@ -1,0 +1,12 @@
+name: On Release Unpublished
+on:
+  release: 
+    types: [unpublished]
+jobs:
+  test:
+    name: Unpublished test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo stuff
+        run: |
+          echo "Unpublished"

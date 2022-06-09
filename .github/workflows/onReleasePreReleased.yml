@@ -1,0 +1,12 @@
+name: On Release PreReleased
+on:
+  release: 
+    types: [prereleased]
+jobs:
+  test:
+    name: PreReleased test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo stuff
+        run: |
+          echo "prereleased"
